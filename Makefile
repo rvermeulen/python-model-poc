@@ -11,7 +11,7 @@ $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VER
 	codeql pack download codeql/python-queries@$(PYTHON_QL_PACK_VERSION)
 
 $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll.bak: $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll
-	sed -i.bak 's/extends RemoteFlowSource/extends RemoteFlowSource::Range/' $(HOME)/.codeql/packages/codeql/python-queries/$(PYTHON_QL_PACK_VERSION)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll
+	sed -i.bak 's/extends RemoteFlowSource/extends RemoteFlowSource::Range/' $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll
 	touch $@
 
 $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx.disabled: $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll.bak
