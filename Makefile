@@ -18,7 +18,7 @@ $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx.disabled: $(PYTHON_QL_P
 	codeql query compile --precompile $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.ql
 	cp $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx.disabled
 
-python.sarif: python-db $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll.bak $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx.disabled
+python.sarif: python-db python-models/remote.yml $(PYTHON_QL_PACK_PATH)/.codeql/libraries/codeql/python-all/$(PYTHON_ALL_PACK_VERSION)/semmle/python/frameworks/data/ModelsAsData.qll.bak $(PYTHON_QL_PACK_PATH)/Security/CWE-089/SqlInjection.qlx.disabled
 	codeql database analyze --model-packs advanced-security/python-models@0.0.1 --rerun --format=sarif-latest -o $@ --sarif-add-file-contents --additional-packs=python-models -- python-db codeql/python-queries@$(PYTHON_QL_PACK_VERSION):Security/CWE-089/SqlInjection.ql 
 
 .PHONY: clean
