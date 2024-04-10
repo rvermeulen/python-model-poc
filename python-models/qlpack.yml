@@ -1,0 +1,9 @@
+---
+library: true 
+warnOnImplicitThis: false
+name: advanced-security/python-models
+version: 0.0.1
+extensionTargets:
+  codeql/python-all: "*"
+dataExtensions:
+  - remote.yml
